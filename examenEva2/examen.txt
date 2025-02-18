@@ -1,0 +1,53 @@
+#!/bin/bash
+
+cuenta() {
+  if [ $1 -gt $2 ]; then
+    for ((i=$1; i>=$2; i--)); do
+      echo $i2
+    done
+  elif [ $1 -lt $2 ]; then
+    for ((i=$1; i<=$2; i++)); do
+      echo $i
+    done
+  else
+    echo "No se puede hacer la cuenta"
+  fi
+}
+
+
+cuenta $1 $2
+
+2
+
+#!/bin/bash
+adivinar() {
+  read -p "Introduce un número: " 
+  numero_secreto=$(( RANDOM % 100 + 1 ))
+  while [$numero -ne $numero_secreto]; do
+    if [ $numero -lt $numero_secreto ]; then
+      echo "es es mayor que $numero";
+    else 
+      echo "el numero es menor que $numero";
+    fi
+    read -p "pone otro numero" $numero
+  done
+  echo "perfecto encontraste el numero secreto" $numero_secreto;
+}
+
+adivinar
+3
+function mcd {
+  param ( $a, $b)
+
+  if ($b -gt $a) {
+    echo "Error: a debe ser mayor que b";
+    return
+  }
+  while ($b -ne 0) {
+        $resto = $a % $b
+        $a = $b
+        $b = $resto
+  }
+  echo "El MCD es: $a";
+}
+mcd $args[0] $args[1]
